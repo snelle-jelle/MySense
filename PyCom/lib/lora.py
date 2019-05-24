@@ -51,7 +51,7 @@ class LORA(object):
     if (not 'ABP' in method.keys()) or not method['ABP'] or not method['ABP'][0]:
       try: # ABP
         from Config import dev_addr, nwk_swkey, app_swkey
-        method['ABP'] = (nwk_swkey, nwk_swkey, app_swkey)
+        method['ABP'] = (dev_addr, nwk_swkey, app_swkey)
         fnd = True
       except: pass
     if not fnd: raise ValueError("No LoRa keys defined")
