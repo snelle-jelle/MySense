@@ -42,7 +42,8 @@ class LORA(object):
       except:
         from machine import unique_id
         from ubinascii import hexlify
-        dev_eui = 'AAAA'+hexlify(unique_id()) # use dflt
+        import binascii
+        dev_eui = 'AAAA'+binascii.hexlify(unique_id()).decode('utf-8') # use dflt
       try:
         from Config import app_eui, app_key
         method['OTAA'] = (dev_eui, app_eui, app_key)
